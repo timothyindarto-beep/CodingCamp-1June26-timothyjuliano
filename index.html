@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-theme="light">
+
+  <p id="storage-unavailable-warning" class="warning-msg hidden" role="alert"></p>
+
+  <header>
+    <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+  </header>
+
+  <main>
+
+    <section id="greeting-widget" aria-label="Greeting">
+      <p id="current-time"></p>
+      <p id="current-date"></p>
+      <h1 id="greeting-text"></h1>
+      <div id="name-setting">
+        <input id="name-input" type="text" maxlength="50" placeholder="Enter your name" aria-label="Your name" />
+        <button id="name-save">Save</button>
+        <p id="name-error" class="validation-msg" role="alert" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="focus-timer" aria-label="Focus Timer">
+      <div id="timer-display" aria-live="polite">25:00</div>
+      <div id="timer-controls">
+        <button id="timer-start">Start</button>
+        <button id="timer-stop" disabled>Stop</button>
+        <button id="timer-reset">Reset</button>
+      </div>
+      <div id="timer-duration-setting">
+        <label for="duration-input">Duration (min)</label>
+        <input id="duration-input" type="number" min="1" max="120" value="25" />
+        <button id="duration-save">Set</button>
+        <p id="duration-error" class="validation-msg" role="alert" aria-live="polite"></p>
+      </div>
+      <div id="timer-complete-signal" class="hidden" aria-live="assertive">Session complete! 🎉</div>
+      <p id="timer-zero-error" class="validation-msg" role="alert" aria-live="polite"></p>
+    </section>
+
+    <section id="todo-list" aria-label="To-Do List">
+      <div id="todo-add">
+        <input id="todo-input" type="text" maxlength="500" placeholder="Add a task…" aria-label="New task text" />
+        <button id="todo-add-btn">Add</button>
+        <p id="todo-add-error" class="validation-msg" role="alert" aria-live="polite"></p>
+      </div>
+      <ul id="task-list" aria-label="Tasks"></ul>
+      <p id="todo-storage-warning" class="warning-msg hidden" role="alert"></p>
+    </section>
+
+    <section id="quick-links" aria-label="Quick Links">
+      <div id="links-grid" role="list"></div>
+      <form id="link-add-form" novalidate>
+        <input id="link-label-input" type="text" maxlength="100" placeholder="Label" aria-label="Link label" />
+        <input id="link-url-input" type="url" maxlength="2048" placeholder="https://…" aria-label="Link URL" />
+        <button type="submit">Add Link</button>
+        <p id="link-add-error" class="validation-msg" role="alert" aria-live="polite"></p>
+      </form>
+      <p id="links-storage-warning" class="warning-msg hidden" role="alert"></p>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
